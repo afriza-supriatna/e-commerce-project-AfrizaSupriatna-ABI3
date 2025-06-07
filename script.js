@@ -48,3 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
     totalPrice.textContent = total.toLocaleString();
   }
 });
+function renderCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    const div = document.createElement("div");
+    div.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+    cartItems.appendChild(div);
+    total += item.price;
+  });
+
+  totalItems.textContent = cart.length;
+  totalPrice.textContent = total.toLocaleString();
+
+  // Update indikator jumlah di header
+  const cartCount = document.getElementById("cart-count");
+  cartCount.textContent = cart.length;
+}
