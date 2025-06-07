@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Afriza Store</title>
-      <p class="sub-title">Halaman E-Commerce Sederhana</p>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,86 +23,93 @@
   </nav>
 </header>
 
-<section id="home" class="hero">
-  <h2>Selamat Datang di Afriza Store</h2>
-  <p>Temukan smartphone favoritmu dengan harga terbaik! Ubur-ubur Ikan Lele</p>
-</section>
+<main>
+  <!-- Beranda -->
+  <section id="home" class="hero">
+    <h2>Selamat Datang di Afriza Store</h2>
+    <p class="sub-title">Halaman E-Commerce Sederhana</p>
+    <p>Temukan smartphone favoritmu dengan harga terbaik! Ubur-ubur Ikan Lele</p>
+  </section>
 
-<section id="produk" class="produk">
-  <h2>Produk Unggulan</h2>
+  <!-- Produk -->
+  <section id="produk" class="produk">
+    <h2>Produk Unggulan</h2>
 
-  <div class="filter-container">
-    <label for="brandFilter" class="filter-label">Pilih Brand:</label>
-    <select id="brandFilter" name="brandFilter" aria-label="Filter produk berdasarkan brand">
-      <option value="all" selected>Semua</option>
-      <option value="samsung">Samsung</option>
-      <option value="oppo">Oppo</option>
-      <option value="apple">Apple</option>
-      <option value="vivo">Vivo</option>
-      <option value="infinix">Infinix</option>
-    </select>
-  </div>
-
-  <div class="produk-container">
-    <div class="card" data-brand="samsung">
-      <img src="images/samsungs23ultra.jpg" alt="samsungs23ultra"/>
-      <h3>Samsung S23 Ultra</h3>
-      <p>Rp 199.999.000</p>
-      <button class="btn-add-cart" data-name="Samsung S23 Ultra" data-price="19999000">Beli</button>
+    <div class="filter-container">
+      <label for="brandFilter" class="filter-label">Pilih Brand:</label>
+      <select id="brandFilter" name="brandFilter" aria-label="Filter produk berdasarkan brand">
+        <option value="all" selected>Semua</option>
+        <option value="samsung">Samsung</option>
+        <option value="oppo">Oppo</option>
+        <option value="apple">Apple</option>
+        <option value="vivo">Vivo</option>
+        <option value="infinix">Infinix</option>
+      </select>
     </div>
-    <div class="card" data-brand="oppo">
-      <img src="images/opporeno13.jpg" alt="opporeno13"/>
-      <h3>Oppo Reno13</h3>
-      <p>Rp 8.000.000 </p>
-      <button class="btn-add-cart" data-name="Oppo Reno13" data-price="8000000">Beli</button>
-    </div>
-    <div class="card" data-brand="apple">
-      <img src="images/iphone16.jpg" alt="iphone16"/>
-      <h3>Apple iPhone 16</h3>
-      <p>Rp 19.999.000</p>
-      <button class="btn-add-cart" data-name="Apple iPhone 16" data-price="19000000">Beli</button>
-    </div>
-    <div class="card" data-brand="vivo">
-      <img src="images/vivox200.jpg" alt="vivox200"/>
-      <h3>Vivo X200</h3>
-      <p>Rp 12.000.000</p>
-      <button class="btn-add-cart" data-name="Vivo X200" data-price="12000000">Beli</button>
-    </div>
-    <div class="card" data-brand="infinix">
-      <img src="images/infinix note50pro.jpg" alt="infinixnote50pro"/>
-      <h3>Infinix Note 50 Pro</h3>
-      <p>Rp 3.100.000</p>
-      <button class="btn-add-cart" data-name="Infinix Note 50 Pro" data-price="3100000">Beli</button>
-    </div>
-  </div>
-</section>
 
-<section id="keranjang" class="keranjang">
-  <h2>Keranjang Belanja</h2>
-  <div class="cart-items"></div>
-  <div class="cart-summary">
-    <p>Total Item: <span id="total-items">0</span></p>
-    <p>Total Harga: Rp <span id="total-price">0</span></p>
-  </div>
-  <button id="btn-clear-cart">Kosongkan Keranjang</button>
-</section>
+    <div class="produk-container">
+      <div class="card" data-brand="samsung">
+        <img src="images/samsungs23ultra.jpg" alt="samsungs23ultra"/>
+        <h3>Samsung S23 Ultra</h3>
+        <p>Rp 19.999.000</p>
+        <button class="btn-add-cart" data-name="Samsung S23 Ultra" data-price="19999000">Beli</button>
+      </div>
+      <div class="card" data-brand="oppo">
+        <img src="images/opporeno13.jpg" alt="opporeno13"/>
+        <h3>Oppo Reno13</h3>
+        <p>Rp 8.000.000</p>
+        <button class="btn-add-cart" data-name="Oppo Reno13" data-price="8000000">Beli</button>
+      </div>
+      <div class="card" data-brand="apple">
+        <img src="images/iphone16.jpg" alt="iphone16"/>
+        <h3>Apple iPhone 16</h3>
+        <p>Rp 19.999.000</p>
+        <button class="btn-add-cart" data-name="Apple iPhone 16" data-price="19999000">Beli</button>
+      </div>
+      <div class="card" data-brand="vivo">
+        <img src="images/vivox200.jpg" alt="vivox200"/>
+        <h3>Vivo X200</h3>
+        <p>Rp 12.000.000</p>
+        <button class="btn-add-cart" data-name="Vivo X200" data-price="12000000">Beli</button>
+      </div>
+      <div class="card" data-brand="infinix">
+        <img src="images/infinix note50pro.jpg" alt="infinixnote50pro"/>
+        <h3>Infinix Note 50 Pro</h3>
+        <p>Rp 3.100.000</p>
+        <button class="btn-add-cart" data-name="Infinix Note 50 Pro" data-price="3100000">Beli</button>
+      </div>
+    </div>
+  </section>
 
-<section id="tentang" class="tentang">
-  <h2>Tentang Afriza Store</h2>
-  <p>Afriza Store menyediakan berbagai pilihan handphone dari merek ternama dengan harga bersaing dan layanan terbaik untuk Anda.
-    Discaimer!!! Belilah produk murah kalau tidak ada duit karena saya juga beli yang murah tapi awet hehe</p>
-  </p>
-</section>
+  <!-- Keranjang -->
+  <section id="keranjang" class="keranjang">
+    <h2>Keranjang Belanja</h2>
+    <div class="cart-items"></div>
+    <div class="cart-summary">
+      <p>Total Item: <span id="total-items">0</span></p>
+      <p>Total Harga: Rp <span id="total-price">0</span></p>
+    </div>
+    <button id="btn-clear-cart">Kosongkan Keranjang</button>
+  </section>
 
-<section id="kontak" class="kontak">
-  <h2>Kontak Kami</h2>
-  <form>
-    <input type="text" placeholder="Nama Anda" required />
-    <input type="email" placeholder="Email Anda" required />
-    <textarea placeholder="Pesan Anda" required></textarea>
-    <button type="submit">Kirim</button>
-  </form>
-</section>
+  <!-- Tentang Kami -->
+  <section id="tentang" class="tentang">
+    <h2>Tentang Afriza Store</h2>
+    <p>Afriza Store menyediakan berbagai pilihan handphone dari merek ternama dengan harga bersaing dan layanan terbaik untuk Anda.
+      Disclaimer!!! Belilah produk murah kalau tidak ada duit karena saya juga beli yang murah tapi awet hehe</p>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="kontak">
+    <h2>Kontak Kami</h2>
+    <form>
+      <input type="text" placeholder="Nama Anda" required />
+      <input type="email" placeholder="Email Anda" required />
+      <textarea placeholder="Pesan Anda" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+</main>
 
 <footer>
   <p>&copy; 2025 Afriza Store. All rights reserved.</p>
