@@ -16,6 +16,7 @@
     <ul class="nav-links">
       <li><a href="#home" class="nav-link active">Beranda</a></li>
       <li><a href="#produk" class="nav-link">Produk</a></li>
+      <li><a href="#produk-terbaru" class="nav-link">Produk Terbaru</a></li>
       <li><a href="#tentang" class="nav-link">Tentang</a></li>
       <li><a href="#kontak" class="nav-link">Kontak</a></li>
       <li><a href="#keranjang" class="nav-link">Keranjang</a></li>
@@ -31,57 +32,89 @@
     <p>Temukan smartphone favoritmu dengan harga terbaik! Ubur-ubur Ikan Lele</p>
   </section>
 
-  <!-- Produk -->
+  <!-- Produk Terbaru -->
+  <section id="produk-terbaru" class="produk-terbaru">
+    <h2>Produk Terbaru</h2>
+    <div class="produk-container">
+      <div class="card" data-brand="produk terbaru">
+        <img src="images/xiaomi15pro.jpg" alt="xiaomi15pro" />
+        <h3>Xiaomi 15 Pro</h3>
+        <p>Storage: 256GB</p>
+        <p>Deskripsi: smartphone flagship dengan chipset Snapdragon 8 Elite, RAM 12GB, dan baterai 6100mAh. Smartphone ini dilengkapi dengan kamera Leica dan sistem komputasional fotografi AISP 2.0. Xiaomi 15 Pro juga mendukung pengisian daya nirkabel dan pengisian cepat 90W. </p>
+        <p>Rp 11.999.000</p>
+        <button class="btn-add-cart" data-name="Xiaomi 15 Pro 256GB" data-price="11999000">Beli</button>
+      </div>
+      <div class="card" data-brand="produk terbaru" >
+        <img src="images/iphone16.jpg" alt="iphone16"/>
+        <h3>iPhone 16</h3>
+        <p>Storage: 512GB</p>
+        <p>Deskripsi: smartphone terbaru dari Apple yang menawarkan berbagai peningkatan dari pendahulunya, iPhone 15. iPhone 16 memiliki layar Super Retina XDR OLED, chipset A18 yang lebih cepat, peningkatan kamera, dan masa pakai baterai yang lebih lama. </p>
+        <p>Rp 19.999.000</p>
+        <button class="btn-add-cart" data-name="iphone16 512GB" data-price="19.999.000">Beli</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produk Unggulan -->
   <section id="produk" class="produk">
     <h2>Produk Unggulan</h2>
-
     <div class="filter-container">
       <label for="brandFilter" class="filter-label">Pilih Brand:</label>
-      <select id="brandFilter" name="brandFilter" aria-label="Filter produk berdasarkan brand">
+      <select id="brandFilter" name="brandFilter">
         <option value="all" selected>Semua</option>
         <option value="samsung">Samsung</option>
         <option value="oppo">Oppo</option>
         <option value="apple">Apple</option>
         <option value="vivo">Vivo</option>
         <option value="infinix">Infinix</option>
+        <option value="produk terbaru">Produk Terbaru</option>
       </select>
     </div>
-
     <div class="produk-container">
       <div class="card" data-brand="samsung">
         <img src="images/samsungs23ultra.jpg" alt="samsungs23ultra"/>
         <h3>Samsung S23 Ultra</h3>
+        <p>Storage: 512GB</p>
+        <p>Deskripsi:  smartphone premium dengan layar Dynamic AMOLED 2X 6,8 inci, chipset Snapdragon 8 Gen 2 for Galaxy, dan kamera belakang 200 MP. Ia juga dilengkapi dengan S Pen, baterai 5000 mAh, dan dukungan pengisian cepat 45W. </p>
         <p>Rp 19.999.000</p>
-        <button class="btn-add-cart" data-name="Samsung S23 Ultra" data-price="19999000">Beli</button>
+        <button class="btn-add-cart" data-name="Samsung S23 Ultra 512GB" data-price="19999000">Beli</button>
       </div>
       <div class="card" data-brand="oppo">
         <img src="images/opporeno13.jpg" alt="opporeno13"/>
         <h3>Oppo Reno13</h3>
+        <p>Storage: 256GB</p>
+        <p>Deskripsi: Kamera selfie canggih, desain ramping, dan layar AMOLED.</p>
         <p>Rp 8.000.000</p>
-        <button class="btn-add-cart" data-name="Oppo Reno13" data-price="8000000">Beli</button>
+        <button class="btn-add-cart" data-name="Oppo Reno13 256GB" data-price="8000000">Beli</button>
       </div>
       <div class="card" data-brand="apple">
-        <img src="images/iphone16.jpg" alt="iphone16"/>
-        <h3>Apple iPhone 16</h3>
-        <p>Rp 19.999.000</p>
-        <button class="btn-add-cart" data-name="Apple iPhone 16" data-price="19999000">Beli</button>
+        <img src="images/iphone 15.jpg" alt="iphone15"/>
+        <h3>Apple iPhone 15</h3>
+        <p>Storage: 512GB</p>
+        <p>Deskripsi: smartphone yang diluncurkan oleh Apple, dengan beberapa fitur utama seperti Dynamic Island, kamera utama 48MP, dan port USB-C. Smartphone ini menggunakan desain aluminium dan kaca yang tahan terhadap cipratan, air, dan debu. Layar Super Retina XDR 6,1 inci pada iPhone 15 lebih terang hingga 2x lipat dibandingkan iPhone 14. </p>
+        <p>Rp 17.999.000</p>
+        <button class="btn-add-cart" data-name="Apple iPhone 15 128GB" data-price="17999000">Beli</button>
       </div>
       <div class="card" data-brand="vivo">
         <img src="images/vivox200.jpg" alt="vivox200"/>
         <h3>Vivo X200</h3>
+        <p>Storage: 256GB</p>
+        <p>Deskripsi: Performa gahar dengan kamera ZEISS dan layar 120Hz.</p>
         <p>Rp 12.000.000</p>
-        <button class="btn-add-cart" data-name="Vivo X200" data-price="12000000">Beli</button>
+        <button class="btn-add-cart" data-name="Vivo X200 256GB" data-price="12000000">Beli</button>
       </div>
       <div class="card" data-brand="infinix">
         <img src="images/infinix note50pro.jpg" alt="infinixnote50pro"/>
         <h3>Infinix Note 50 Pro</h3>
+        <p>Storage: 256GB</p>
+        <p>Deskripsi: Performa mumpuni untuk harga terjangkau, cocok untuk pelajar.</p>
         <p>Rp 3.100.000</p>
-        <button class="btn-add-cart" data-name="Infinix Note 50 Pro" data-price="3100000">Beli</button>
+        <button class="btn-add-cart" data-name="Infinix Note 50 Pro 128GB" data-price="3100000">Beli</button>
       </div>
     </div>
   </section>
 
-!-- Keranjang -->
+  <!-- Keranjang -->
   <section id="keranjang" class="keranjang">
     <h2>Keranjang Belanja</h2>
     <div class="cart-items"></div>
@@ -92,12 +125,7 @@
     <button id="btn-clear-cart">Kosongkan Keranjang</button>
   </section>
 
-  <!-- Tentang Kami -->
-  <section id="tentang" class="tentang">
-    <h2>Tentang Afriza Store</h2>
-    <p>Afriza Store menyediakan berbagai pilihan handphone dari merek ternama dengan harga bersaing dan layanan terbaik untuk Anda.
-      Disclaimer!!! Belilah produk murah kalau tidak ada duit karena saya juga beli yang murah tapi awet hehe</p>
-  </section>
+ 
 
   <!-- Kontak -->
   <section id="kontak" class="kontak">
@@ -113,7 +141,21 @@
 
 <footer>
   <p>&copy; 2025 Afriza Store. All rights reserved.</p>
-</footer>
+<section id="tentang" class="tentang-kami">
+  <h2>Tentang Kami</h2>
+  <p>
+    Afriza Store adalah toko e-commerce yang menyediakan berbagai produk smartphone berkualitas dengan harga terbaik. Kami berkomitmen memberikan pelayanan yang cepat, aman, dan nyaman untuk semua pelanggan kami.
+  </p>
+  <p>
+    Dengan pengalaman bertahun-tahun di dunia teknologi dan penjualan online, kami terus berupaya menghadirkan produk-produk terbaru dan unggulan dari berbagai merek ternama seperti Samsung, Apple, Xiaomi, dan lainnya.
+  </p>
+  <p>
+    Misi kami adalah memudahkan pelanggan dalam mendapatkan smartphone impian dengan proses belanja yang mudah dan terpercaya.
+  </p>
+  <p> Catatan!!! Beli yang murah aja kalau ga punya duit karena saya juga pakai yang murah tapi awet hehe:)</p>
+</section>
+
+  
 
 <script src="script.js"></script>
 </body>
