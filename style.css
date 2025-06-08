@@ -1,92 +1,125 @@
-/* ====== Global Styles ====== */
-body {
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f172a;
-  color: #f0fdf4;
-  margin: 0;
-  padding: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
 }
 
-h1, h2, h3, p {
-  margin: 0;
-  padding: 0;
+body {
+  background-color: #121212;
+  color: #d0f0c0; /* hijau emerald muda */
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
-/* ====== Header ====== */
+a {
+  color: #1de9b6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #00bfa5;
+}
+
+/* Header */
 header {
-  background-color: #000;
+  background-color: #000000cc; /* hitam transparan */
   padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  border-bottom: 2px solid #00bfa5;
 }
 
 .logo h1 {
-  font-size: 24px;
-  color: #f0fdf4;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00bfa5;
 }
 
 .logo span {
-  color: #10b981;
+  color: #1de9b6;
 }
 
-nav .nav-links {
-  list-style: none;
+nav ul.nav-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  list-style: none;
+  gap: 1.5rem;
 }
 
-nav .nav-link {
-  text-decoration: none;
-  color: #f0fdf4;
-  padding: 0.5rem 1rem;
-  transition: background 0.3s;
-  border-radius: 5px;
+nav ul.nav-links li a {
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
 }
 
-nav .nav-link:hover,
-nav .nav-link.active {
-  background-color: #10b981;
+nav ul.nav-links li a.active,
+nav ul.nav-links li a:hover {
+  background-color: #00bfa5;
   color: #000;
 }
 
-/* ====== Hero Section ====== */
+/* Tombol keranjang di header */
+header .cart-icon {
+  background-color: #00bfa5;
+  color: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background-color 0.3s;
+}
+
+header .cart-icon:hover {
+  background-color: #1de9b6;
+}
+
+
+main {
+  padding: 2rem;
+}
+
+
 .hero {
-  padding: 2rem;
   text-align: center;
-  background-color: #1e293b;
-  color: #f0fdf4;
+  margin-bottom: 3rem;
 }
 
-/* ====== Produk Section ====== */
-.produk {
-  padding: 2rem;
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #00bfa5;
 }
 
-.filter-container {
+.hero .sub-title {
+  font-size: 1.2rem;
+  font-style: italic;
   margin-bottom: 1rem;
+  color: #1de9b6;
 }
 
-.filter-label {
-  margin-right: 0.5rem;
-}
 
 .produk-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 1.5rem;
 }
 
 .card {
-  background-color: #1f2937;
-  padding: 1rem;
+  background-color: #1c1c1c;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  box-shadow: 0 0 8px #00bfa5aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   transition: transform 0.3s ease;
 }
 
@@ -95,142 +128,191 @@ nav .nav-link.active {
 }
 
 .card img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
   margin-bottom: 1rem;
+  border-radius: 8px;
 }
 
 .card h3 {
-  color: #10b981;
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  color: #00bfa5;
 }
 
 .card p {
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #b0f2cf;
 }
 
-.card button {
-  background-color: #10b981;
-  color: #000;
+button.btn-add-cart {
+  margin-top: auto;
+  background-color: #00bfa5;
   border: none;
   padding: 0.5rem 1rem;
+  font-weight: 700;
+  color: #000;
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 0.5rem;
-  width: 100%;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
-.card button:hover {
-  background-color: #059669;
+button.btn-add-cart:hover {
+  background-color: #1de9b6;
 }
 
-/* ====== Keranjang ====== */
+/* Filter */
+.filter-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.filter-label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+
 .keranjang {
-  padding: 2rem;
-  background-color: #1e293b;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  background-color: #1c1c1c;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00bfa5aa;
 }
 
 .cart-items {
+  max-height: 250px;
+  overflow-y: auto;
   margin-bottom: 1rem;
 }
 
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #00bfa5;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
 .cart-summary p {
-  margin: 0.5rem 0;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #1de9b6;
 }
 
 #btn-clear-cart {
-  background-color: #ef4444;
+  background-color: #ff3d00;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
   cursor: pointer;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.3s;
 }
 
 #btn-clear-cart:hover {
-  background-color: #dc2626;
+  background-color: #ff7043;
 }
 
-/* ====== Tentang & Kontak ====== */
+
 .tentang, .kontak {
-  padding: 2rem;
-  background-color: #0f172a;
-  color: #f0fdf4;
+  margin-top: 3rem;
+  padding: 1rem 1.5rem;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00bfa5aa;
 }
 
 .kontak form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 400px;
-  margin-top: 1rem;
+  gap: 0.75rem;
 }
 
 .kontak input, .kontak textarea {
-  padding: 0.5rem;
-  border-radius: 5px;
+  padding: 0.6rem;
+  border-radius: 6px;
   border: none;
-  background-color: #1f2937;
-  color: #f0fdf4;
+  font-size: 1rem;
+  resize: vertical;
 }
 
 .kontak button {
-  background-color: #10b981;
+  background-color: #00bfa5;
   color: #000;
-  padding: 0.5rem;
   border: none;
-  border-radius: 5px;
+  padding: 0.7rem 1rem;
   cursor: pointer;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
 .kontak button:hover {
-  background-color: #059669;
+  background-color: #1de9b6;
 }
 
-/* ====== Footer ====== */
+
 footer {
-  background-color: #000;
-  color: #f0fdf4;
   text-align: center;
   padding: 1rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid #00bfa5;
+  color: #00bfa5;
 }
 
-/* ====== Responsive ====== */
-@media (max-width: 480px) {
-  .produk-container {
-    grid-template-columns: 1fr;
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
   }
+
+  nav ul.nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .produk-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    font-size: 0.9rem;
+  }
+
   .hero h2 {
-    font-size: 20px;
-  }
-  nav .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
+    font-size: 1.8rem;
   }
 }
-
-@media (min-width: 481px) and (max-width: 768px) {
-  .produk-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.card button {
-  background-color: #10b981;
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 0.5rem;
-  width: 100%;
-  transition: transform 0.1s ease;
+.tentang-kami {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f4f4f4; /* atau sesuaikan dengan tema */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
+.tentang-kami h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
 
+.tentang-kami p {
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: justify;
+}
