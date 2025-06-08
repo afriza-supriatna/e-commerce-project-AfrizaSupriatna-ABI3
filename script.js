@@ -1,50 +1,128 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const filter = document.getElementById("brandFilter");
-  const cards = document.querySelectorAll(".card");
-  const cartItems = document.querySelector(".cart-items");
-  const totalItems = document.getElementById("total-items");
-  const totalPrice = document.getElementById("total-price");
-  const clearCartBtn = document.getElementById("btn-clear-cart");
+document.addEventListener("DOMContentLoaded", function () {
+  const brandFilter = document.getElementById("brandFilter");
+  const produkCards = document.querySelectorAll(
+    "#produk .produk-container .card, #produk-terbaru .produk-container .card"
+  );
+  const cartItemsContainer = document.querySelector(".cart-items");
+  const totalItemsElem = document.getElementById("total-items");
+  const totalPriceElem = document.getElementById("total-price");
+  const btnClearCart = document.getElementById("btn-clear-cart");
 
   let cart = [];
 
-  filter.addEventListener("change", () => {
-    const value = filter.value;
-    cards.forEach(card => {
-      if (value === "all" || card.dataset.brand === value) {
+  function renderCart() {
+    cartItemsContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = "<p>Keranjang kosong.</p>";
+    } else {
+      cart.forEach((item, index) => {
+        const itemElem = document.createElement("div");
+        itemElem.className = "cart-item";
+        itemElem.innerHTML = `
+          <p><strong>${item.name}</strong> - Rp ${item.price.toLocaleString()} x ${item.qty}</p>
+          <button class="btn-remove" data-index="${index}">Hapus</button>
+        `;
+        cartItemsContainer.appendChild(itemElem);
+      });
+    }
+
+    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+    totalItemsElem.textContent = totalItems;
+    totalPriceElem.textContent = totalPrice.toLocaleString();
+  }
+
+  // Tambah item ke keranjang
+  function addToCart(name, price) {
+    // Cek jika item sudah ada, tambah qty
+    const existingIndex = cart.findIndex((item) => item.name === name);
+    if (existingIndex > -1) {
+      cart[existingIndex].qty++;
+    } else {
+      cart.push({ name: name, price: price, qty: 1 });
+    }
+    renderCart();
+  }
+
+  
+  document.querySelectorAll(".btn-add-cart").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const name = this.getAttribute("data-name");
+      // Parsing harga string ke number
+      let priceStr = this.getAttribute("data-price").toString().replace(/\./g, "");
+      const price = parseInt(priceStr, 10);
+      addToCart(name, price);
+      alert(`Produk "${name}" berhasil ditambahkan ke keranjang.`);
+    });
+  });
+
+  
+  cartItemsContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("btn-remove")) {
+      const index = e.target.getAttribute("data-index");
+      cart.splice(index, 1);
+      renderCart();
+    }
+  });
+
+  
+  btnClearCart.addEventListener("click", function () {
+    if (confirm("Apakah Anda yakin ingin mengosongkan keranjang?")) {
+      cart = [];
+      renderCart();
+    }
+  });
+
+  brandFilter.addEventListener("change", function () {
+    const selectedBrand = this.value;
+
+    produkCards.forEach((card) => {
+      const cardBrand = card.getAttribute("data-brand");
+
+      if (selectedBrand === "all") {
         card.style.display = "block";
+      } else if (selectedBrand === "produk terbaru") {
+        if (cardBrand === "produk terbaru") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
       } else {
-        card.style.display = "none";
+        if (cardBrand === selectedBrand) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
       }
     });
+
+    if (selectedBrand === "produk terbaru") {
+      document.getElementById("produk-terbaru").style.display = "block";
+      document.getElementById("produk").style.display = "none";
+    } else if (selectedBrand === "all") {
+      document.getElementById("produk-terbaru").style.display = "block";
+      document.getElementById("produk").style.display = "block";
+    } else {
+      document.getElementById("produk-terbaru").style.display = "none";
+      document.getElementById("produk").style.display = "block";
+    }
   });
 
-  document.querySelectorAll(".btn-add-cart").forEach(button => {
-    button.addEventListener("click", () => {
-      const name = button.dataset.name;
-      const price = parseInt(button.dataset.price);
-      cart.push({ name, price });
-      renderCart();
-    });
+  renderCart();
+  document.getElementById("produk-terbaru").style.display = "block";
+  document.getElementById("produk").style.display = "block";
+});
+document.querySelectorAll('a.nav-link').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const targetID = this.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetID);
+
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
   });
-
-  clearCartBtn.addEventListener("click", () => {
-    cart = [];
-    renderCart();
-  });
-
-  function renderCart() {
-    cartItems.innerHTML = "";
-    let total = 0;
-
-    cart.forEach(item => {
-      const div = document.createElement("div");
-      div.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
-      cartItems.appendChild(div);
-      total += item.price;
-    });
-
-    totalItems.textContent = cart.length;
-    totalPrice.textContent = total.toLocaleString();
-  }
 });
